@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WordsBook</string>
+    <string name="setting">增删改查</string>
+    <string name="book">生词本</string>
+</resources>
