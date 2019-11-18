@@ -32,6 +32,18 @@
             android:text="此处显示翻译"
             android:textSize="30dp" />
 
+        <TextView
+            android:id="@+id/example"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chinese"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="17dp"
+            android:text="此处显示例句此处显示例句"
+            android:textSize="25dp" />
+
         <Button
             android:id="@+id/per"
             android:layout_width="wrap_content"

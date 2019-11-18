@@ -19,13 +19,13 @@
                 android:layout_height="match_parent"
                 android:textSize="30dp"
                 android:textColor="@color/colorText"
-                android:text="英文"/>
+                android:hint="英文"/>
             <EditText
                 android:id="@+id/inputC"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:textSize="30dp"
-                android:text="释义"
+                android:hint="释义"
                 android:textColor="@color/colorText" />
 
             <Button
@@ -42,7 +42,7 @@
                 android:id="@+id/input_example"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="请输入例句"
+                android:hint="请输入例句"
                 android:textSize="30dp"
                 android:textColor="@color/colorText"/>
         </LinearLayout>
@@ -55,7 +55,7 @@
                 android:id="@+id/inputD"
                 android:layout_width="300dp"
                 android:layout_height="80dp"
-                android:text="请输入要删除的单词"
+                android:hint="请输入要删除的单词"
                 android:textSize="30dp"
                 android:textColor="@color/colorText"/>
 
@@ -74,7 +74,7 @@
                 android:id="@+id/inputF"
                 android:layout_width="300dp"
                 android:layout_height="80dp"
-                android:text="请输入要查询的单词"
+                android:hint="请输入要查询的单词"
                 android:textSize="30dp"
                 android:textColor="@color/colorText"/>
 
@@ -85,13 +85,18 @@
                 android:text="查询"
                 android:textSize="25dp" />
         </LinearLayout>
-        <TextView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/find"
-            android:text="查询结果在此显示"
-            android:textSize="35dp"
-            android:textColor="@color/colorPrimary"/>
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/find"
+                android:text="查询结果在此显示"
+                android:textSize="35dp"
+                android:textColor="@color/colorPrimary"/>
+        </ScrollView>
+
 
 
 
