@@ -5,20 +5,24 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
+import com.example.wordsbook.MainActivity;
 
 
-
-public class myContentProvider extends ContentProvider
-{
+public class MyContentProvider extends ContentProvider {
     SQLiteDatabase database;
+    DBHelper dbHelper;
+
+
+
     private final int DIR = 0;
     private final int ITEM = 1;
-    private final String AUTHORITY = "com.example.WordsBook.provider";
+    private final String AUTHORITY = "com.example.wordsbook.provider";
     private static UriMatcher uriMatcher;
 
-    public myContentProvider(){
-
+    public MyContentProvider(){
+        dbHelper = new DBHelper(getContext(),"Word.db",null,1);
     }
 
 
@@ -26,6 +30,9 @@ public class myContentProvider extends ContentProvider
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         // Implement this to handle requests to delete one or more rows.
         int deletedRows = 0;
+        dbHelper = new DBHelper(getContext(),"Word.db",null,1);
+        dbHelper.getWritableDatabase();
+        database = dbHelper.getWritableDatabase();
         deletedRows = database.delete("words", selection, selectionArgs);
         return deletedRows;
     }
@@ -40,8 +47,11 @@ public class myContentProvider extends ContentProvider
     @Override
     public Uri insert(Uri uri, ContentValues values) {
         // TODO: Implement this to handle requests to insert a new row.
+        dbHelper = new DBHelper(getContext(),"Word.db",null,1);
+        dbHelper.getWritableDatabase();
+        database = dbHelper.getWritableDatabase();
         long newId = database.insert("words", null, values);
-        Uri returnUri = Uri.parse("content://" + AUTHORITY + "Database/" + newId);
+        Uri returnUri = Uri.parse("content://" + AUTHORITY + "/words/" + newId);
         return returnUri;
     }
 
@@ -56,6 +66,9 @@ public class myContentProvider extends ContentProvider
                         String[] selectionArgs, String sortOrder)
     {
         Cursor cursor = null;
+        dbHelper = new DBHelper(getContext(),"Word.db",null,1);
+        dbHelper.getWritableDatabase();
+        database = dbHelper.getWritableDatabase();
         cursor = database.query("words", projection, selection, selectionArgs, null, null, sortOrder);
         return cursor;
     }
@@ -65,6 +78,9 @@ public class myContentProvider extends ContentProvider
                       String[] selectionArgs) {
         // TODO: Implement this to handle requests to update one or more rows.
         int updateRows = 0;
+        dbHelper = new DBHelper(getContext(),"Word.db",null,1);
+        dbHelper.getWritableDatabase();
+        database = dbHelper.getWritableDatabase();
         updateRows = database.update("words", values, selection, selectionArgs);
 
         return updateRows;

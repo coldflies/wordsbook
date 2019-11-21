@@ -21,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "example text" +
                 "collect blob default 0)";
         db.execSQL(sql);
-        Toast.makeText(mContext,"创建成功",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext,"创建成功",Toast.LENGTH_SHORT).show();
     }
 
     @Override

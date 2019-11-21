@@ -16,5 +16,10 @@
         android:id="@+id/menu_update"
         android:title="更新内容"
         />
+    <item
+        app:showAsAction="never"
+        android:id="@+id/menu_help"
+        android:title="使用帮助"
+        />
 
 </menu>

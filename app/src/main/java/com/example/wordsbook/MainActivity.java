@@ -26,7 +26,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     List<wordsList> wordslist;
-    private  DBHelper dbHelper;
+    private   DBHelper dbHelper;
     SQLiteDatabase db;
     MyAdapter myAdapter;
     private TextView tv_chinese,tv_english,tv_example;
@@ -56,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
                 break;
             }
+            case R.id.menu_help:
+                Intent i = new Intent(this,HelpActivity.class);
+                startActivity(i);
+                break;
+
 
         }
 
